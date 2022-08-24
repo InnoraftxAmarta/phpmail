@@ -30,5 +30,10 @@ $mail = new PHPMailer(true);
     $mail->Subject = 'Form Submission';
     $mail->Body    = '<b> Thank you for your submission.</b>';
 
-    $mail->send();
+    if(!$mail->send()){
+        echo "Error sending:".$mail->ErrorInfo;
+    }
+    else {
+        echo "Email sent successfully";
+    }
  ?>
